@@ -36,10 +36,6 @@ body {
   -webkit-user-drag: none;
 }
 
-/*
-  Áreas clicáveis transparentes.
-  Calibragem oficial para a capa PNG de 1920 × 3000 px.
-*/
 .link-area {
   position: absolute;
   z-index: 10;
@@ -50,7 +46,7 @@ body {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.18);
 }
 
-/* Imóveis: x≈177 px, y≈1641 px, largura≈1344 px, altura≈199 px */
+/* CELULAR E TABLET EM PÉ — arte vertical 1920 × 3000 */
 .imoveis {
   left: 9.24%;
   top: 54.69%;
@@ -58,7 +54,6 @@ body {
   height: 6.64%;
 }
 
-/* WhatsApp: x≈177 px, y≈1923 px, largura≈1344 px, altura≈199 px */
 .whatsapp {
   left: 9.24%;
   top: 64.11%;
@@ -66,7 +61,6 @@ body {
   height: 6.64%;
 }
 
-/* E-mail: x≈185 px, y≈2207 px, largura≈1344 px, altura≈199 px */
 .email {
   left: 9.62%;
   top: 73.58%;
@@ -74,7 +68,6 @@ body {
   height: 6.64%;
 }
 
-/* Instagram: x≈185 px, y≈2490 px, largura≈1344 px, altura≈199 px */
 .instagram {
   left: 9.62%;
   top: 83.01%;
@@ -103,25 +96,86 @@ body {
   border: 0;
 }
 
-@media (min-width: 1921px) {
+/*
+  DESKTOP E NOTEBOOK EM PAISAGEM
+  Usa a arte horizontal assets/capa-desktop.png.
+  A página inteira cabe na tela sem precisar rolar.
+*/
+@media (min-width: 900px) and (orientation: landscape) {
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
   .pagina {
-    padding: 24px;
+    width: 100vw;
+    height: 100vh;
+    min-height: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: #064c66;
   }
 
   .cartao {
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
+    width: min(100vw, calc(100vh * 16 / 9));
+    aspect-ratio: 16 / 9;
+    max-width: none;
+    background-image: url("assets/capa-desktop.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    overflow: hidden;
+    box-shadow: none;
+  }
+
+  /*
+    A imagem vertical continua no HTML para celular e acessibilidade,
+    mas no desktop fica invisível e não altera a proporção horizontal.
+  */
+  .capa {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Calibragem da arte horizontal Full HD 1920 × 1080 */
+
+  .imoveis {
+    left: 49.94%;
+    top: 37.09%;
+    width: 36.66%;
+    height: 9.25%;
+  }
+
+  .whatsapp {
+    left: 49.94%;
+    top: 49.00%;
+    width: 36.66%;
+    height: 9.25%;
+  }
+
+  .email {
+    left: 49.94%;
+    top: 60.68%;
+    width: 36.66%;
+    height: 9.03%;
+  }
+
+  .instagram {
+    left: 49.94%;
+    top: 72.16%;
+    width: 36.66%;
+    height: 9.25%;
   }
 }
 
-/*
-  MODO DE TESTE VISUAL:
-  no index.html, troque:
-  <div class="cartao">
-  por:
-  <div class="cartao">
-
-  As quatro áreas clicáveis aparecerão em vermelho.
-*/
+/* Modo de teste: troque class="cartao" por class="cartao teste" */
 .cartao.teste .link-area {
   background: rgba(255, 0, 0, 0.28);
   outline: 2px solid #ffffff;
