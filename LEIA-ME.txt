@@ -1,0 +1,37 @@
+SITE RENATA RAMOS — VERSÃO 1920 × 3000 PX
+
+ARQUIVOS:
+- index.html
+- style.css
+- assets/capa.png
+- assets/logo.png
+
+A CAPA:
+- formato: PNG
+- dimensão exata: 1920 × 3000 px
+
+O QUE VOCÊ PRECISA TROCAR NO index.html:
+1. SEU-LINK-DOS-IMOVEIS-AQUI
+2. 5583999999999
+3. SEUEMAIL@DOMINIO.COM.BR
+4. SEU-USUARIO-AQUI
+
+MODO DE TESTE:
+Troque:
+<div class="cartao">
+
+por:
+<div class="cartao teste">
+
+Salve e atualize o navegador.
+As áreas clicáveis ficarão vermelhas.
+
+APÓS TESTAR:
+Volte para:
+<div class="cartao">
+
+IMPORTANTE:
+- não renomeie capa.png ou logo.png
+- não altere a proporção da capa
+- não use background-size: cover
+- mantenha width: 100% e height: auto
