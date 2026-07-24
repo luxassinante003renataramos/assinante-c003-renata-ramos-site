@@ -9,7 +9,7 @@
     name="description"
     content="Escolhas seguras. Conquistas reais. Acesse os imóveis, fale pelo WhatsApp, envie um e-mail ou visite o Instagram de Renata Ramos Imóveis PB."
   >
-  <meta name="theme-color" content="#215a6d">
+  <meta name="theme-color" content="#07526c">
 
   <link rel="icon" type="image/png" href="assets/logo.png">
   <link rel="apple-touch-icon" href="assets/logo.png">
@@ -20,24 +20,34 @@
   <main class="pagina" aria-label="Cartão digital de Renata Ramos Imóveis PB">
     <div class="cartao">
 
-      <img
-        class="capa"
-        src="assets/capa.png"
-        width="1920"
-        height="3000"
-        alt="Renata Ramos Imóveis PB. Escolhas seguras. Conquistas reais."
-        decoding="async"
-        fetchpriority="high"
-      >
+      <picture>
+        <source
+          media="(min-width: 900px) and (orientation: landscape)"
+          srcset="assets/capa-desktop.png"
+        >
+        <source
+          media="(min-width: 600px)"
+          srcset="assets/capa-tablet.png"
+        >
+        <img
+          class="capa"
+          src="assets/capa-celular.png"
+          alt="Renata Ramos Imóveis PB. Escolhas seguras. Conquistas reais."
+          width="1080"
+          height="1920"
+          decoding="async"
+          fetchpriority="high"
+        >
+      </picture>
 
       <!--
-        TROQUE SOMENTE OS ENDEREÇOS ENTRE ASPAS NOS href.
-        Não apague class, aria-label, target ou rel.
+        SUBSTITUA SOMENTE OS ENDEREÇOS ENTRE ASPAS NOS href.
+        Não apague class, target, rel ou aria-label.
       -->
 
       <a
         class="link-area imoveis"
-        href="https://luxmercadoimoveispb.com.br?id=c002"
+        href="https://luxmercadoimoveispb.com.br?id=c003"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Ver os imóveis de Renata Ramos">

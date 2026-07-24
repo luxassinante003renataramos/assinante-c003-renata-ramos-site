@@ -1,37 +1,69 @@
-SITE RENATA RAMOS — VERSÃO 1920 × 3000 PX
+SITE RENATA RAMOS — REPOSIÇÃO COMPLETA
 
-ARQUIVOS:
-- index.html
-- style.css
-- assets/capa.png
-- assets/logo.png
+Este pacote substitui os arquivos atuais do repositório sem alterar o link público do GitHub Pages.
 
-A CAPA:
-- formato: PNG
-- dimensão exata: 1920 × 3000 px
+O link continuará o mesmo porque:
+- o repositório continua sendo o mesmo;
+- a branch continua sendo main;
+- o GitHub Pages continua usando /(root);
+- somente os arquivos internos serão substituídos.
 
-O QUE VOCÊ PRECISA TROCAR NO index.html:
-1. SEU-LINK-DOS-IMOVEIS-AQUI
-2. 5583999999999
-3. SEUEMAIL@DOMINIO.COM.BR
-4. SEU-USUARIO-AQUI
+ESTRUTURA FINAL
 
-MODO DE TESTE:
-Troque:
-<div class="cartao">
+index.html
+style.css
+LEIA-ME.txt
+assets/
+  capa-celular.png
+  capa-tablet.png
+  capa-desktop.png
+  logo.png
 
-por:
-<div class="cartao teste">
+DIMENSÕES
 
-Salve e atualize o navegador.
-As áreas clicáveis ficarão vermelhas.
+capa-celular.png: 1080 × 1920 px
+capa-tablet.png: 2048 × 2732 px
+capa-desktop.png: 1920 × 1080 px
+logo.png: PNG original
 
-APÓS TESTAR:
-Volte para:
-<div class="cartao">
+IMPORTANTE
 
-IMPORTANTE:
-- não renomeie capa.png ou logo.png
-- não altere a proporção da capa
-- não use background-size: cover
-- mantenha width: 100% e height: auto
+O projeto não contém modo de teste.
+Não há classe "teste" nem áreas vermelhas.
+Os botões permanecem transparentes e funcionais.
+
+COMO SUBSTITUIR SEM ALTERAR O LINK DO GITHUB
+
+1. Abra o mesmo repositório já publicado.
+2. Não crie outro repositório.
+3. Não altere Settings > Pages.
+4. Na raiz do repositório, use Add file > Upload files.
+5. Envie index.html, style.css e LEIA-ME.txt.
+6. O GitHub substituirá os arquivos de mesmo nome.
+7. Entre na pasta assets.
+8. Apague ou substitua as imagens antigas.
+9. Envie:
+   capa-celular.png
+   capa-tablet.png
+   capa-desktop.png
+   logo.png
+10. Confirme em Commit changes.
+11. Aguarde a republicação.
+12. Atualize o site com Ctrl + F5.
+
+COMO COLOCAR OS LINKS OFICIAIS
+
+Abra index.html com o Bloco de Notas antes de enviar ou edite pelo GitHub.
+
+Procure e substitua:
+
+SEU-LINK-DOS-IMOVEIS-AQUI
+5583999999999
+SEUEMAIL@DOMINIO.COM.BR
+SEU-USUARIO-AQUI
+
+Não altere as classes:
+link-area imoveis
+link-area whatsapp
+link-area email
+link-area instagram

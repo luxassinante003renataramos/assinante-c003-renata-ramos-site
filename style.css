@@ -6,7 +6,7 @@ html,
 body {
   margin: 0;
   min-height: 100%;
-  background: #215a6d;
+  background: #07526c;
 }
 
 body {
@@ -19,13 +19,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  background: #07526c;
 }
 
 .cartao {
   position: relative;
-  width: min(100%, 1920px);
+  width: min(100%, 1080px);
   line-height: 0;
-  background: #215a6d;
+  background: #07526c;
+}
+
+picture {
+  display: block;
 }
 
 .capa {
@@ -44,35 +49,6 @@ body {
   border-radius: 999px;
   touch-action: manipulation;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.18);
-}
-
-/* CELULAR E TABLET EM PÉ — arte vertical 1920 × 3000 */
-.imoveis {
-  left: 9.24%;
-  top: 54.69%;
-  width: 70%;
-  height: 6.64%;
-}
-
-.whatsapp {
-  left: 9.24%;
-  top: 64.11%;
-  width: 70%;
-  height: 6.64%;
-}
-
-.email {
-  left: 9.62%;
-  top: 73.58%;
-  width: 70%;
-  height: 6.64%;
-}
-
-.instagram {
-  left: 9.62%;
-  top: 83.01%;
-  width: 70%;
-  height: 6.64%;
 }
 
 .link-area:focus-visible {
@@ -96,11 +72,71 @@ body {
   border: 0;
 }
 
-/*
-  DESKTOP E NOTEBOOK EM PAISAGEM
-  Usa a arte horizontal assets/capa-desktop.png.
-  A página inteira cabe na tela sem precisar rolar.
-*/
+/* CELULAR — capa 1080 × 1920 */
+.imoveis {
+  left: 14.665%;
+  top: 58.194%;
+  width: 68.650%;
+  height: 6.160%;
+}
+
+.whatsapp {
+  left: 14.665%;
+  top: 66.447%;
+  width: 68.650%;
+  height: 6.100%;
+}
+
+.email {
+  left: 14.665%;
+  top: 74.581%;
+  width: 68.650%;
+  height: 6.100%;
+}
+
+.instagram {
+  left: 14.665%;
+  top: 82.715%;
+  width: 68.650%;
+  height: 6.041%;
+}
+
+/* TABLET — capa 2048 × 2732 */
+@media (min-width: 600px) and (max-width: 899px) {
+  .cartao {
+    width: min(100%, 2048px);
+  }
+
+  .imoveis {
+    left: 17.143%;
+    top: 57.074%;
+    width: 60.461%;
+    height: 6.556%;
+  }
+
+  .whatsapp {
+    left: 17.143%;
+    top: 65.769%;
+    width: 60.553%;
+    height: 6.556%;
+  }
+
+  .email {
+    left: 17.143%;
+    top: 74.603%;
+    width: 60.461%;
+    height: 6.625%;
+  }
+
+  .instagram {
+    left: 17.143%;
+    top: 83.368%;
+    width: 60.461%;
+    height: 6.625%;
+  }
+}
+
+/* DESKTOP E NOTEBOOK — capa 1920 × 1080 */
 @media (min-width: 900px) and (orientation: landscape) {
   html,
   body {
@@ -115,68 +151,46 @@ body {
     min-height: 0;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    background: #064c66;
   }
 
   .cartao {
     width: min(100vw, calc(100vh * 16 / 9));
+    max-width: 1920px;
     aspect-ratio: 16 / 9;
-    max-width: none;
-    background-image: url("assets/capa-desktop.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
     overflow: hidden;
-    box-shadow: none;
   }
 
-  /*
-    A imagem vertical continua no HTML para celular e acessibilidade,
-    mas no desktop fica invisível e não altera a proporção horizontal.
-  */
   .capa {
-    position: absolute;
-    inset: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    pointer-events: none;
+    object-fit: contain;
   }
 
-  /* Calibragem da arte horizontal Full HD 1920 × 1080 */
-
   .imoveis {
-    left: 49.94%;
-    top: 37.09%;
-    width: 36.66%;
-    height: 9.25%;
+    left: 49.940%;
+    top: 37.088%;
+    width: 36.663%;
+    height: 9.245%;
   }
 
   .whatsapp {
-    left: 49.94%;
-    top: 49.00%;
-    width: 36.66%;
-    height: 9.25%;
+    left: 49.940%;
+    top: 48.990%;
+    width: 36.663%;
+    height: 9.245%;
   }
 
   .email {
-    left: 49.94%;
-    top: 60.68%;
-    width: 36.66%;
-    height: 9.03%;
+    left: 49.940%;
+    top: 60.680%;
+    width: 36.663%;
+    height: 9.033%;
   }
 
   .instagram {
-    left: 49.94%;
-    top: 72.16%;
-    width: 36.66%;
-    height: 9.25%;
+    left: 49.940%;
+    top: 72.157%;
+    width: 36.663%;
+    height: 9.245%;
   }
-}
-
-/* Modo de teste: troque class="cartao" por class="cartao teste" */
-.cartao.teste .link-area {
-  background: rgba(255, 0, 0, 0.28);
-  outline: 2px solid #ffffff;
 }
