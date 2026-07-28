@@ -2,142 +2,145 @@
   box-sizing: border-box;
 }
 
+:root {
+  --fundo: #5a443c;
+  --terracota: #bf5931;
+  --texto: #fff4e8;
+}
+
 html,
 body {
   margin: 0;
   min-height: 100%;
-  background: #07526c;
+  background: var(--fundo);
 }
 
 body {
   overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .pagina {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background: #07526c;
+  background: var(--fundo);
 }
 
 .cartao {
   position: relative;
   width: min(100%, 1080px);
   line-height: 0;
-  background: #07526c;
+  overflow: hidden;
+  background: var(--fundo);
 }
 
-picture {
-  display: block;
-}
-
+picture,
 .capa {
   display: block;
   width: 100%;
+}
+
+.capa {
   height: auto;
   user-select: none;
   -webkit-user-drag: none;
 }
 
-.link-area {
+.area-link {
   position: absolute;
-  z-index: 10;
+  z-index: 5;
   display: block;
-  cursor: pointer;
   border-radius: 999px;
+  cursor: pointer;
   touch-action: manipulation;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.18);
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.20);
 }
 
-.link-area:focus-visible {
+.area-link:focus-visible {
   outline: 4px solid #ffffff;
   outline-offset: -4px;
 }
 
-.link-area:active {
-  background: rgba(255, 255, 255, 0.08);
+.area-link:active {
+  background: rgba(255, 255, 255, 0.09);
 }
 
-.somente-leitor {
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }
 
-/* CELULAR — capa 1080 × 1920 */
+/* CELULAR VERTICAL — arte 1080 × 1920
+   As áreas cobrem ícone + botão, não apenas o retângulo terracota. */
 .imoveis {
-  left: 14.665%;
-  top: 58.194%;
-  width: 68.650%;
-  height: 6.160%;
+  left: 8.4%;
+  top: 57.9%;
+  width: 69.8%;
+  height: 5.9%;
 }
-
 .whatsapp {
-  left: 14.665%;
-  top: 66.447%;
-  width: 68.650%;
-  height: 6.100%;
+  left: 8.4%;
+  top: 66.2%;
+  width: 69.8%;
+  height: 5.9%;
 }
-
 .email {
-  left: 14.665%;
-  top: 74.581%;
-  width: 68.650%;
-  height: 6.100%;
+  left: 8.4%;
+  top: 74.4%;
+  width: 69.8%;
+  height: 5.9%;
 }
-
 .instagram {
-  left: 14.665%;
-  top: 82.715%;
-  width: 68.650%;
-  height: 6.041%;
+  left: 8.4%;
+  top: 82.7%;
+  width: 69.8%;
+  height: 5.9%;
 }
 
-/* TABLET — capa 2048 × 2732 */
-@media (min-width: 600px) and (max-width: 899px) {
+/* TABLET VERTICAL — arte 2048 × 2732 */
+@media (orientation: portrait) and (min-width: 600px) {
   .cartao {
     width: min(100%, 2048px);
   }
 
   .imoveis {
-    left: 17.143%;
-    top: 57.074%;
-    width: 60.461%;
-    height: 6.556%;
+    left: 16.7%;
+    top: 58.5%;
+    width: 55.1%;
+    height: 5.7%;
   }
-
   .whatsapp {
-    left: 17.143%;
-    top: 65.769%;
-    width: 60.553%;
-    height: 6.556%;
+    left: 16.7%;
+    top: 67.0%;
+    width: 55.1%;
+    height: 5.7%;
   }
-
   .email {
-    left: 17.143%;
-    top: 74.603%;
-    width: 60.461%;
-    height: 6.625%;
+    left: 16.7%;
+    top: 75.5%;
+    width: 55.1%;
+    height: 5.7%;
   }
-
   .instagram {
-    left: 17.143%;
-    top: 83.368%;
-    width: 60.461%;
-    height: 6.625%;
+    left: 16.7%;
+    top: 84.0%;
+    width: 55.1%;
+    height: 5.7%;
   }
 }
 
-/* DESKTOP E NOTEBOOK — capa 1920 × 1080 */
-@media (min-width: 900px) and (orientation: landscape) {
+/* TABLET HORIZONTAL E DISPOSITIVOS TOUCH EM PAISAGEM — arte 2732 × 2048 */
+@media (orientation: landscape) and (pointer: coarse) {
   html,
   body {
     width: 100%;
@@ -147,17 +150,15 @@ picture {
 
   .pagina {
     width: 100vw;
-    height: 100vh;
+    height: 100svh;
     min-height: 0;
     align-items: center;
-    justify-content: center;
   }
 
   .cartao {
-    width: min(100vw, calc(100vh * 16 / 9));
-    max-width: 1920px;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
+    width: min(100vw, calc(100svh * 2732 / 2048));
+    max-width: 2732px;
+    aspect-ratio: 2732 / 2048;
   }
 
   .capa {
@@ -167,30 +168,107 @@ picture {
   }
 
   .imoveis {
-    left: 49.940%;
-    top: 37.088%;
-    width: 36.663%;
-    height: 9.245%;
+    left: 48.9%;
+    top: 33.3%;
+    width: 38.4%;
+    height: 7.8%;
   }
-
   .whatsapp {
-    left: 49.940%;
-    top: 48.990%;
-    width: 36.663%;
-    height: 9.245%;
+    left: 48.9%;
+    top: 44.5%;
+    width: 38.4%;
+    height: 7.8%;
   }
-
   .email {
-    left: 49.940%;
-    top: 60.680%;
-    width: 36.663%;
-    height: 9.033%;
+    left: 48.9%;
+    top: 55.8%;
+    width: 38.4%;
+    height: 7.8%;
+  }
+  .instagram {
+    left: 48.9%;
+    top: 67.0%;
+    width: 38.4%;
+    height: 7.8%;
+  }
+}
+
+/* DESKTOP E NOTEBOOK — arte 1920 × 1080 */
+@media (orientation: landscape) and (pointer: fine) {
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
   }
 
-  .instagram {
-    left: 49.940%;
-    top: 72.157%;
-    width: 36.663%;
-    height: 9.245%;
+  .pagina {
+    width: 100vw;
+    height: 100svh;
+    min-height: 0;
+    align-items: center;
   }
+
+  .cartao {
+    width: min(100vw, calc(100svh * 16 / 9));
+    max-width: 1920px;
+    aspect-ratio: 16 / 9;
+  }
+
+  .capa {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .imoveis {
+    left: 49.8%;
+    top: 34.8%;
+    width: 35.0%;
+    height: 9.0%;
+  }
+  .whatsapp {
+    left: 49.8%;
+    top: 47.8%;
+    width: 35.0%;
+    height: 9.0%;
+  }
+  .email {
+    left: 49.8%;
+    top: 60.7%;
+    width: 35.0%;
+    height: 9.0%;
+  }
+  .instagram {
+    left: 49.8%;
+    top: 73.6%;
+    width: 35.0%;
+    height: 9.0%;
+  }
+}
+
+.install-app {
+  position: fixed;
+  z-index: 20;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: rgba(73, 51, 44, 0.95);
+  color: #fff;
+  font: 700 15px/1 Arial, sans-serif;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
+  cursor: pointer;
+}
+
+.aviso-js {
+  position: fixed;
+  inset: auto 12px 12px;
+  z-index: 30;
+  margin: 0;
+  padding: 12px;
+  background: #fff;
+  color: #111;
+  text-align: center;
 }

@@ -5,81 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
   <title>Renata Ramos Imóveis PB</title>
-  <meta
-    name="description"
-    content="Escolhas seguras. Conquistas reais. Acesse os imóveis, fale pelo WhatsApp, envie um e-mail ou visite o Instagram de Renata Ramos Imóveis PB."
-  >
-  <meta name="theme-color" content="#07526c">
+  <meta name="description" content="Escolhas seguras. Conquistas reais. Acesse imóveis e fale com Renata Ramos Imóveis PB.">
+  <meta name="theme-color" content="#5a443c">
+  <meta name="color-scheme" content="dark">
 
-  <link rel="icon" type="image/png" href="assets/logo.png">
-  <link rel="apple-touch-icon" href="assets/logo.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="canonical" href="https://www.renataramosimoveispb.com.br/">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Renata Ramos">
+
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app-config.js" defer></script>
+  <script src="./app.js" defer></script>
 </head>
 
 <body>
   <main class="pagina" aria-label="Cartão digital de Renata Ramos Imóveis PB">
-    <div class="cartao">
-
+    <section class="cartao" aria-label="Acessos rápidos">
       <picture>
+        <!-- Tablet horizontal e celulares em paisagem com tela sensível ao toque -->
         <source
-          media="(min-width: 900px) and (orientation: landscape)"
-          srcset="assets/capa-desktop.png"
-        >
+          media="(orientation: landscape) and (pointer: coarse)"
+          srcset="./assets/capa-tablet-horizontal.png">
+
+        <!-- Desktop e notebook horizontal -->
         <source
-          media="(min-width: 600px)"
-          srcset="assets/capa-tablet.png"
-        >
+          media="(orientation: landscape) and (pointer: fine)"
+          srcset="./assets/capa-desktop.png">
+
+        <!-- Tablet vertical -->
+        <source
+          media="(orientation: portrait) and (min-width: 600px)"
+          srcset="./assets/capa-tablet-vertical.png">
+
+        <!-- Celular vertical e fallback -->
         <img
           class="capa"
-          src="assets/capa-celular.png"
+          src="./assets/capa-mobile.png"
           alt="Renata Ramos Imóveis PB. Escolhas seguras. Conquistas reais."
           width="1080"
           height="1920"
           decoding="async"
-          fetchpriority="high"
-        >
+          fetchpriority="high">
       </picture>
 
-      <!--
-        SUBSTITUA SOMENTE OS ENDEREÇOS ENTRE ASPAS NOS href.
-        Não apague class, target, rel ou aria-label.
-      -->
-
-      <a
-        class="link-area imoveis"
-        href="https://luxmercadoimoveispb.com.br?id=c003"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Ver os imóveis de Renata Ramos">
-        <span class="somente-leitor">Imóveis</span>
+      <a class="area-link imoveis" data-link="imoveis" href="#" target="_blank"
+         rel="noopener noreferrer" aria-label="Ver imóveis">
+        <span class="sr-only">Imóveis</span>
       </a>
 
-      <a
-        class="link-area whatsapp"
-        href="https://wa.me/5583993088330?text=Ol%C3%A1%2C%20Renata.%20Vi%20seu%20site%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20os%20im%C3%B3veis."
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Falar com Renata Ramos pelo WhatsApp">
-        <span class="somente-leitor">WhatsApp</span>
+      <a class="area-link whatsapp" data-link="whatsapp" href="#" target="_blank"
+         rel="noopener noreferrer" aria-label="Falar pelo WhatsApp">
+        <span class="sr-only">WhatsApp</span>
       </a>
 
-      <a
-        class="link-area email"
-        href="mailto:renata.corretorajp@gmail.com?subject=Contato%20pelo%20site%20Renata%20Ramos"
-        aria-label="Enviar e-mail para Renata Ramos">
-        <span class="somente-leitor">E-mail</span>
+      <a class="area-link email" data-link="email" href="#"
+         aria-label="Enviar e-mail">
+        <span class="sr-only">E-mail</span>
       </a>
 
-      <a
-        class="link-area instagram"
-        href="https://www.instagram.com/renataramos_corretora/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Abrir o Instagram de Renata Ramos">
-        <span class="somente-leitor">Instagram</span>
+      <a class="area-link instagram" data-link="instagram" href="#" target="_blank"
+         rel="noopener noreferrer" aria-label="Abrir Instagram">
+        <span class="sr-only">Instagram</span>
       </a>
-
-    </div>
+    </section>
   </main>
+
+  <button id="installApp" class="install-app" type="button" hidden>
+    Instalar aplicativo
+  </button>
+
+  <noscript>
+    <p class="aviso-js">Ative o JavaScript para usar os botões do cartão digital.</p>
+  </noscript>
 </body>
 </html>

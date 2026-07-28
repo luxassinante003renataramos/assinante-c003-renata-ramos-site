@@ -1,0 +1,55 @@
+{
+  "id": "/",
+  "name": "Renata Ramos Imóveis PB",
+  "short_name": "Renata Ramos",
+  "description": "Escolhas seguras. Conquistas reais. Acesse os imóveis e fale com Renata Ramos Imóveis PB.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#5a443c",
+  "theme_color": "#5a443c",
+  "categories": [
+    "business",
+    "lifestyle"
+  ],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./assets/capa-mobile.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Cartão digital no celular"
+    },
+    {
+      "src": "./assets/capa-desktop.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Cartão digital no computador"
+    }
+  ]
+}

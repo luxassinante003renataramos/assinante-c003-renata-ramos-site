@@ -1,0 +1,72 @@
+REPOSIÇÃO TOTAL DO REPOSITÓRIO — SEM ALTERAR O LINK
+
+1. Extraia este ZIP.
+2. Abra o repositório GitHub já existente.
+3. Não altere o nome do repositório.
+4. Não altere Settings > Pages.
+5. Na raiz, envie todos os arquivos e a pasta assets.
+6. Os arquivos de mesmo nome serão substituídos.
+7. Remova imagens antigas que não aparecem nesta estrutura, para evitar confusão.
+8. Confirme o commit na branch main.
+9. Aguarde o GitHub Pages republicar.
+10. Abra o domínio e pressione Ctrl + F5.
+
+ESTRUTURA FINAL
+
+index.html
+style.css
+app-config.js
+app.js
+manifest.webmanifest
+sw.js
+offline.html
+CNAME
+.nojekyll
+README.md
+assets/
+  capa-app.png
+  capa-mobile.png
+  capa-tablet-vertical.png
+  capa-tablet-horizontal.png
+  capa-desktop.png
+  icon-192.png
+  icon-512.png
+  icon-maskable-512.png
+  apple-touch-icon.png
+  favicon-32.png
+
+LINKS
+
+Antes ou depois do upload, abra app-config.js e substitua somente:
+- COLE_AQUI_O_LINK_OFICIAL_DOS_IMOVEIS
+- 5583999999999
+- COLE_AQUI_O_EMAIL_OFICIAL
+- COLE_AQUI_O_LINK_COMPLETO_DO_INSTAGRAM
+
+PWA
+
+Não precisa de PWABuilder, Appy Pie ou outro serviço.
+O PWA está implementado diretamente com:
+- manifest.webmanifest
+- sw.js
+- registro no app.js
+- ícones derivados exclusivamente da capa enviada
+- botão de instalação nativo, exibido quando o navegador permite
+
+IMPORTANTE
+
+A instalação nunca é silenciosa: Android, iPhone e computadores exigem uma confirmação do usuário por segurança.
+
+LINKS OFICIAIS JÁ CONFIGURADOS
+
+Imóveis:
+https://luxmercadoimoveispb.com.br?id=c003
+
+WhatsApp:
+5583993088330
+
+E-mail:
+renataramosimoveispb@gmail.com
+
+Instagram:
+https://www.instagram.com/renataramosimoveispb/
