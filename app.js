@@ -62,25 +62,58 @@
   }
 
   // Botão nativo de instalação, mostrado apenas quando o navegador permite.
-  let installPrompt = null;
-  const installButton = document.getElementById("installApp");
+ let installPrompt = null;
+const installButton = document.getElementById("installApp");
 
-  window.addEventListener("beforeinstallprompt", (event) => {
-    event.preventDefault();
-    installPrompt = event;
-    if (installButton) installButton.hidden = false;
-  });
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  installPrompt = event;
+});
 
-  installButton?.addEventListener("click", async () => {
-    if (!installPrompt) return;
-    installButton.hidden = true;
+installButton?.addEventListener("click", async () => {
+  if (installPrompt) {
     await installPrompt.prompt();
-    await installPrompt.userChoice;
-    installPrompt = null;
-  });
 
-  window.addEventListener("appinstalled", () => {
-    if (installButton) installButton.hidden = true;
+    const escolha = await installPrompt.userChoice;
     installPrompt = null;
-  });
-})();
+
+    if (escolha.outcome === "accepted") {
+      installButton.textContent = "Instalado";
+      installButton.disabled = true;
+    }
+
+    return;
+  }
+
+  const isIOS =
+    /iphone|ipad|ipod/i.test(navigator.userAgent);
+
+  const isStandalone =
+    window.matchMedia("(display-mode: standalone)").matches ||
+    window.navigator.standalone === true;
+
+  if (isStandalone) {
+    alert("O aplicativo já está instalado neste aparelho.");
+    return;
+  }
+
+  if (isIOS) {
+    alert(
+      'No iPhone: toque em "Compartilhar" e depois em "Adicionar à Tela de Início".'
+    );
+    return;
+  }
+
+  alert(
+    'Abra o menu do navegador e toque em "Instalar aplicativo" ou "Adicionar à tela inicial".'
+  );
+});
+
+window.addEventListener("appinstalled", () => {
+  installPrompt = null;
+
+  if (installButton) {
+    installButton.textContent = "Instalado";
+    installButton.disabled = true;
+  }
+});
