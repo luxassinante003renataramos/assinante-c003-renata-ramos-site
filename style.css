@@ -313,3 +313,8 @@ picture,
   color: #111;
   text-align: center;
 }
+.install-app:disabled {
+  cursor: default;
+  opacity: 0.55;
+  transform: none;
+}
