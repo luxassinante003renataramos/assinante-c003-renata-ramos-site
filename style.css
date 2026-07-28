@@ -47,12 +47,14 @@ picture,
   height: auto;
   user-select: none;
   -webkit-user-drag: none;
+  pointer-events: none;
 }
 
 .area-link {
   position: absolute;
-  z-index: 5;
+  z-index: 50;
   display: block;
+  pointer-events: auto;
   border-radius: 999px;
   cursor: pointer;
   touch-action: manipulation;
@@ -80,8 +82,7 @@ picture,
   border: 0;
 }
 
-/* CELULAR VERTICAL — arte 1080 × 1920
-   As áreas cobrem ícone + botão, não apenas o retângulo terracota. */
+/* CELULAR VERTICAL */
 .imoveis {
   left: 8.4%;
   top: 57.9%;
@@ -107,7 +108,7 @@ picture,
   height: 5.9%;
 }
 
-/* TABLET VERTICAL — arte 2048 × 2732 */
+/* TABLET VERTICAL */
 @media (orientation: portrait) and (min-width: 600px) {
   .cartao {
     width: min(100%, 2048px);
@@ -139,7 +140,7 @@ picture,
   }
 }
 
-/* TABLET HORIZONTAL E DISPOSITIVOS TOUCH EM PAISAGEM — arte 2732 × 2048 */
+/* TABLET HORIZONTAL */
 @media (orientation: landscape) and (pointer: coarse) {
   html,
   body {
@@ -193,7 +194,7 @@ picture,
   }
 }
 
-/* DESKTOP E NOTEBOOK — arte 1920 × 1080 */
+/* DESKTOP E NOTEBOOK */
 @media (orientation: landscape) and (pointer: fine) {
   html,
   body {
@@ -224,61 +225,52 @@ picture,
   .imoveis {
     left: 49.8%;
     top: 34.8%;
-    width: 35.0%;
-    height: 9.0%;
+    width: 35%;
+    height: 9%;
   }
   .whatsapp {
     left: 49.8%;
     top: 47.8%;
-    width: 35.0%;
-    height: 9.0%;
+    width: 35%;
+    height: 9%;
   }
   .email {
     left: 49.8%;
     top: 60.7%;
-    width: 35.0%;
-    height: 9.0%;
+    width: 35%;
+    height: 9%;
   }
   .instagram {
     left: 49.8%;
     top: 73.6%;
-    width: 35.0%;
-    height: 9.0%;
+    width: 35%;
+    height: 9%;
   }
 }
 
 .install-app {
   position: fixed;
   z-index: 20;
-
   right: max(10px, env(safe-area-inset-right));
   bottom: max(10px, env(safe-area-inset-bottom));
-
   width: auto;
   min-width: 0;
   padding: 6px 10px;
-
   border: 1px solid rgba(255, 244, 232, 0.34);
   border-radius: 999px;
-
   background: rgba(73, 51, 44, 0.78);
   color: rgba(255, 244, 232, 0.92);
-
   font-family: Arial, Helvetica, sans-serif;
   font-size: 11px;
   font-weight: 600;
   line-height: 1;
   letter-spacing: 0.1px;
-
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
   cursor: pointer;
-
   opacity: 0.82;
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease,
-    background 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
 }
+
 .install-app:hover {
   opacity: 1;
   transform: translateY(-1px);
@@ -293,6 +285,7 @@ picture,
 .install-app:active {
   transform: scale(0.97);
 }
+
 @media (max-width: 599px) {
   .install-app {
     right: max(8px, env(safe-area-inset-right));
@@ -312,9 +305,4 @@ picture,
   background: #fff;
   color: #111;
   text-align: center;
-}
-.install-app:disabled {
-  cursor: default;
-  opacity: 0.55;
-  transform: none;
 }

@@ -1,6 +1,6 @@
-const CACHE_NAME = "renata-ramos-site-v3";
+const CACHE_NAME = "renata-ramos-site-v4";
 
-const APP_SHELL = [
+const STATIC_FILES = [
   "./",
   "./index.html",
   "./style.css",
@@ -22,7 +22,7 @@ const APP_SHELL = [
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL))
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_FILES))
   );
   self.skipWaiting();
 });
@@ -43,27 +43,35 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
-  if (event.request.mode === "navigate") {
+  const url = new URL(event.request.url);
+  const networkFirst =
+    event.request.mode === "navigate" ||
+    url.pathname.endsWith("/index.html") ||
+    url.pathname.endsWith("/style.css") ||
+    url.pathname.endsWith("/app.js") ||
+    url.pathname.endsWith("/app-config.js");
+
+  if (networkFirst) {
     event.respondWith(
-      fetch(event.request)
+      fetch(event.request, { cache: "no-store" })
         .then((response) => {
           const clone = response.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
           return response;
         })
-        .catch(() => caches.match("./offline.html"))
+        .catch(async () => {
+          return (await caches.match(event.request)) ||
+            (event.request.mode === "navigate"
+              ? await caches.match("./offline.html")
+              : Response.error());
+        })
     );
     return;
   }
 
   event.respondWith(
     caches.match(event.request).then((cached) => {
-      if (cached) return cached;
-
-      return fetch(event.request).then((response) => {
-        if (!response || response.status !== 200 || response.type === "opaque") {
-          return response;
-        }
+      return cached || fetch(event.request).then((response) => {
         const clone = response.clone();
         caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
         return response;

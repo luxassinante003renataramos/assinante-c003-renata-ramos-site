@@ -1,0 +1,22 @@
+CORREÇÃO — BOTÕES SEM FUNCIONAR EM CELULAR E TABLET
+
+Substitua na raiz do repositório:
+- style.css
+- app.js
+- sw.js
+
+Depois:
+1. Faça commit na branch main.
+2. Aguarde 3 a 5 minutos.
+3. Feche todas as abas do site no celular/tablet.
+4. Limpe os dados do site no navegador.
+5. Se o PWA estiver instalado, desinstale e instale novamente.
+6. Abra o site e teste os quatro botões.
+
+A correção:
+- eleva o z-index dos links;
+- desativa eventos na imagem;
+- força pointer-events nos botões;
+- reaplica os links quando o DOM estiver pronto;
+- troca o cache para v4;
+- busca app-config.js/app.js/style.css primeiro na internet.
